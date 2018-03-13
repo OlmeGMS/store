@@ -11,7 +11,7 @@ mongoose.connect('mongodb://localhost:27017/videogames', (err, res) => {
       console.log("La conexion a la base de datos esta corriendo correctamente");
 
       app.listen(port, function(){
-        console.log("Servidor de tienda videogames escuchanho en http://localhost:"+port);
+        console.log("Servidor de tienda videogames escuchando en http://localhost:"+port);
 
       });
   }
