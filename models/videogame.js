@@ -4,11 +4,14 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
 var VideogameSchema = Schema({
-    name: String,
-    type: String,
-    year: Number,
-    image: String,
-    classification: { type: Schema.ObjectId, ref: 'Classification'}
+  name: String,
+  type: String,
+  year: Number,
+  image: String,
+  classification: {
+    type: Schema.ObjectId,
+    ref: 'Classification'
+  }
 
 });
 
