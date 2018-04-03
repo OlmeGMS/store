@@ -7,7 +7,7 @@ var md_auth = require('../middlewares/authenticated');
 
 //subir ficheros
 var multipart = require('connect-multiparty');
-var md_upload = multipart({ uploadDir: './uploads/videogame'});
+var md_upload = multipart({ uploadDir: './uploads/videogames'});
 
 api.get('/videogame/:id', md_auth.ensureAuth, VideogameController.getVideogame);
 api.post('/videogame', md_auth.ensureAuth, VideogameController.saveVideogame);

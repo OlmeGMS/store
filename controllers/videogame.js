@@ -6,20 +6,20 @@ var mongoosPaginate = require('mongoose-pagination');
 
 //cargar modelos
 var Classification = require('../models/classification');
-var Videogame = require('../models/videogames');
+var Videogame = require('../models/videogame');
 
 function getVideogame(req, res) {
 
   var videogameId = req.params.id;
-  Videogame.findByID(videogameId).populate({
+  Videogame.findById(videogameId).populate({
     path: 'classification'
-  }).exec((err, videogames) => {
+  }).exec((err, videogame) => {
     if (err) {
       res.status(500).send({
         message: 'Error en la petición'
       });
     } else {
-      if (!videogames) {
+      if (!videogame) {
         res.status(404).send({
           message: 'El videogame no existe'
         });
@@ -44,13 +44,15 @@ function getVideogames(req, res) {
     }).sort('name');
   }
 
-  find.populate(path: 'classification').exec((err, videogames) => {
+  find.populate({
+    path: 'classification'
+  }).exec((err, videogame) => {
     if (err) {
       res.status(500).send({
         message: 'ERROR: No se puedo hacer la petición'
       });
     } else {
-      if (!videogames) {
+      if (!videogame) {
         res.status(404).send({
           message: 'ERROR: No hay videogames'
         });
@@ -64,7 +66,7 @@ function getVideogames(req, res) {
   });
 }
 
-function saveVideogame() {
+function saveVideogame(req, res) {
   var videogame = new Videogame();
 
   var params = req.body;
@@ -111,7 +113,7 @@ function updateVideogame(req, res) {
         });
       } else {
         res.status(200).send({
-          videogame: videogameStored
+          videogame: videogameUpdated
         });
       }
 
@@ -122,7 +124,7 @@ function updateVideogame(req, res) {
 function deleteVideogame(req, res) {
   var videogameId = req.params.id;
 
-  Videogame.findByIDAndRemove(videogameId, (err, videogameRemoved) => {
+  Videogame.findByIdAndRemove(videogameId, (err, videogameRemoved) => {
     if (err) {
       res.status(500).send({
         message: 'ERROR en la peticioón'
@@ -134,16 +136,16 @@ function deleteVideogame(req, res) {
         });
       } else {
         Classification.find({
-          classification: classificationRemoved._id
+          videogame: videogameRemoved._id
         }).remove((err, classificationRemoved) => {
           if (err) {
             res.status(500).send({
-              message: 'Error al eliminar la clasificación'
+              message: 'Error al eliminar la clasiificación'
             });
           } else {
             if (!classificationRemoved) {
               res.status(404).send({
-                message: 'La clasificación no ha sido eliminada'
+                message: 'La clasificación no ha sido elimindada'
               });
             } else {
               res.status(200).send({
@@ -152,7 +154,10 @@ function deleteVideogame(req, res) {
             }
           }
         });
+
+
       }
+
     }
   });
 }
@@ -170,7 +175,7 @@ function uploadImage(req, res) {
     var ext_split = file_name.split('\.');
     var file_ext = ext_split[1];
 
-    if (file_ext == 'png' || file_ext || 'jpg'
+    if (file_ext == 'png' || file_ext || 'jpg' ||
       file_ext == 'gif') {
       Videogame.findByIdAndUpdate(videogameId, {
         image: file_name
@@ -197,18 +202,18 @@ function uploadImage(req, res) {
   }
 }
 
-function getImageFile(req, res){
+function getImageFile(req, res) {
   var imageFile = req.params.imageFile;
-  var path_file = './upload/videogames/' + imageFile;
+  var path_file = './uploads/videogames/' + imageFile;
 
-  fs.exists(path_file, function(exists){
-      if(exists){
-        res.sendFile(path.resolve(path_file));
-      }else{
-        res.status(200).send({
-          message: 'No existe la imagen'
-        });
-      }
+  fs.exists(path_file, function(exists) {
+    if (exists) {
+      res.sendFile(path.resolve(path_file));
+    } else {
+      res.status(200).send({
+        message: 'No existe la imagen'
+      });
+    }
   });
 }
 
