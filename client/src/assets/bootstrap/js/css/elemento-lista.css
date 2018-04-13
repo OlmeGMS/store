@@ -1,0 +1,12 @@
+.elementoLista{
+	width: 80%;
+	margin: 8px auto;
+	padding: 10px;
+	list-style: none;
+}
+.elementoLista:nth-child(odd){
+	background-color: #CAF;
+}
+.elementoLista:nth-child(even){
+	background-color: #BAD;
+}

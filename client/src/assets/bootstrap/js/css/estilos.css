@@ -1,0 +1,119 @@
+*{
+	/*tipo de fuente*/
+	font-family: Verdana;
+	/*ajuste de tamaños con propiedad box-sizing*/
+	box-sizing: border-box;
+}
+body{
+	background-image: url(../imgs/fondo-pared.jpg);
+	/*centrar, fijar y tamaño 100% en imagen de fondo*/
+	background-position: center;
+	background-attachment: fixed;
+	background-size: 100% 100%;
+	/*ancho 1200 pixeles*/
+	width: 1200px;
+	/*centrar -bloque- */
+	margin: auto;/* centrar automaticamente*/
+
+}
+nav{
+	/*color de fondo negro*/
+	background-color: black;
+	/*ancho automatico*/
+	width: auto;
+	/*altura minima 50px*/
+	min-height: 50px;
+	position: fixed;/*fija el menu*/
+	width: 100%;
+	left:0;
+	top:0;
+
+
+}
+
+
+/*arreglar LI en linea, sin estilo*/
+nav ul li{ /*para trabajar con un li especifico el mayor > es hijo directo*/
+	display: inline-block;
+	list-style: none;
+
+}
+
+/*estilizar A: en linea, ancho 200, alto 200, fondo negro, letra blanca, relleno superior 15px, sin decoracion*/
+nav ul li a{
+	display:inline-block;
+	width: 200px;
+	height: 20px;
+	background-color: black;
+	color: white;
+	padding-top: 15px 0 0 0;
+	text-decoration: none;/* para quitar las lineas de los link*/
+
+}
+nav ul li a:hover{
+	color: orange;
+
+
+}
+header, section{ /* la coma selecciona a header y section por independiente*/
+	/*color de fondo blanco con opacidad 0.7*/
+	background-color:rgba(255,255,255,0.7); 
+	/*ancho automatico*/
+	width: auto;
+	/*altura minima 200 pixeles*/
+	min-height: 200px;
+	/*relleno 50 pixeles*/
+	padding: 50px;
+	/*alineacion del texto al centro*/
+	text-align: center;
+}
+.caja{
+	/*flotante*/
+	float:left;
+    /*ancho 350 pixeles*/
+    width: 33.3%;
+	/*altura minima 150 pixeles*/
+	min-height: 150px;
+	/*relleno 15 pixeles*/
+	padding: 15px;
+}
+#bloque2{
+	/*altura 700 pixeles*/
+	height: 700px;
+}
+#bloque2 p, #bloque2 li{
+	/*alineacion del texto: justificado*/
+	text-align: justify;
+}
+#bloque3{
+	/*romper flotantes*/
+	clear: both;
+
+	
+}
+#bloque4{
+	/*altura 400 pixeles*/
+	height: 400px;
+}
+iframe{
+	position: center;
+}
+/*quitar margenes y rellenos del UL hijo*/
+
+/*estilizar botones (A, hijo de BLOQUE4): bloque, centrados, relleno 5, ancho 100, alto 30, fondo #416, color blanco, redondez 5, sin decoracion*/
+#bloque4 a{
+	display: block;
+	margin: auto;
+	padding: 5px;
+	width:100px;
+	height:30px;
+	background-color:#416;
+	color: white;
+	border-radius: 5px;
+	text-decoration: none;
+}
+#bloque4 a :hover{
+	background-color: #204;
+}
+
+/*efecto hover fondo #204*/

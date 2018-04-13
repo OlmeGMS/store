@@ -1,0 +1,9 @@
+.img-redonda{
+	display: block;
+	margin: auto;
+	width: 150px;
+	height: 150px;
+	border-radius: 50%;
+	border: 3px solid #000;
+	box-shadow: 0 0 5px 5px #AAA;
+}
