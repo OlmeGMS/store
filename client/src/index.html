@@ -72,8 +72,6 @@
   <link rel="stylesheet" href="assets/css/themes.css">
   <!-- END Stylesheets -->
 
-  <!-- Modernizr (browser feature detection library) & Respond.js (enables responsive CSS code on browsers that don't support it, eg IE8) -->
-  <script src="js/vendor/modernizr-respond.min.js"></script>
 
   <!-- Modernizr (browser feature detection library) & Respond.js (enables responsive CSS code on browsers that don't support it, eg IE8) -->
   <script src="assets/js/vendor/modernizr-respond.min.js"></script>
@@ -81,6 +79,14 @@
   <script src="assets/js/vendor/bootstrap.min.js"></script>
   <script src="assets/js/plugins.js"></script>
   <script src="assets/js/app.js"></script>
+  <!-- Bootstrap.js, Jquery plugins and Custom JS code -->
+  <script src="assets/js/vendor/bootstrap.min.js"></script>
+  <script src="assets/js/pages/login.js"></script>
+  <script>
+    $(function() {
+      Login.init();
+    });
+  </script>
 </head>
 <body>
   <app-root></app-root>
