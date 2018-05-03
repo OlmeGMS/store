@@ -1,6 +1,7 @@
 <!--The content below is only a placeholder and can be replaced.-->
 
 <div *ngIf="identity" class="">
+
   <!--The content below is only a placeholder and can be replaced.-->
 
   <!-- Page Wrapper -->
@@ -145,13 +146,13 @@
                 <a href="index.html" class=" active"><i class="gi gi-stopwatch sidebar-nav-icon"></i><span class="sidebar-nav-mini-hide">Dashboard</span></a>
               </li>
               <li>
-                <a href="index2.html"><i class="gi gi-leaf sidebar-nav-icon"></i><span class="sidebar-nav-mini-hide">Dashboard 2</span></a>
+                <a [routerLink]="['/mis-datos']"><i class="gi gi-leaf sidebar-nav-icon"></i><span class="sidebar-nav-mini-hide">Mis datos</span></a>
               </li>
               <li>
                 <a href="#" class="sidebar-nav-menu"><i class="fa fa-angle-left sidebar-nav-indicator sidebar-nav-mini-hide"></i><i class="gi gi-shopping_cart sidebar-nav-icon"></i><span class="sidebar-nav-mini-hide">eCommerce</span></a>
                 <ul>
                   <li>
-                    <a href="page_ecom_dashboard.html">Dashboard</a>
+                    <a href="page_ecom_dashboard.html">mis datos</a>
                   </li>
                   <li>
                     <a href="page_ecom_orders.html">Orders</a>
@@ -309,6 +310,7 @@
                   <div class="widget-icon pull-left themed-background-autumn animation-fadeIn">
                     <i class="fa fa-file-text"></i>
                   </div>
+
                   <h3 class="widget-content text-right animation-pullDown">
                                         New <strong>Article</strong><br>
                                         <small>Mountain Trip</small>
@@ -564,6 +566,10 @@
                                         </h3>
                     <!-- Flot Charts (initialized in js/pages/index.js), for more examples you can check out http://www.flotcharts.org/ -->
                     <div id="dash-widget-chart" class="chart"></div>
+                    <div *ngIf="identity" class="">
+                      <router-outlet></router-outlet>
+                    </div>
+
                   </div>
                   <!-- END Widget Header -->
 
