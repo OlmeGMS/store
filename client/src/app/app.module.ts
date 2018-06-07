@@ -6,12 +6,14 @@ import { routing, appRoutingProviders } from './app.routing';
 
 import { AppComponent } from './app.component';
 import { UserEditComponent } from './components/user-edit.component';
+import { VideogameListComponent } from './components/games-list.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    UserEditComponent
+    UserEditComponent,
+    VideogameListComponent
   ],
   imports: [
     BrowserModule,

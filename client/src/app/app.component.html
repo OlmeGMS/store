@@ -168,13 +168,13 @@
                 <a [routerLink]="['/mis-datos']"><i class="gi gi-leaf sidebar-nav-icon"></i><span class="sidebar-nav-mini-hide">Mis datos</span></a>
               </li>
               <li>
+                <a [routerLink]="['/videogames', 1]"><i class="gi gi-leaf sidebar-nav-icon"></i><span class="sidebar-nav-mini-hide">Video juegos</span></a>
+              </li>
+              <li>
                 <a href="#" class="sidebar-nav-menu"><i class="fa fa-angle-left sidebar-nav-indicator sidebar-nav-mini-hide"></i><i class="gi gi-shopping_cart sidebar-nav-icon"></i><span class="sidebar-nav-mini-hide">eCommerce</span></a>
                 <ul>
                   <li>
                     <a href="page_ecom_dashboard.html">mis datos</a>
-                  </li>
-                  <li>
-                    <a href="page_ecom_orders.html">Orders</a>
                   </li>
                   <li>
                     <a href="page_ecom_order_view.html">Order View</a>
@@ -445,7 +445,7 @@
                   <!-- Timeline Content -->
                   <div class="row">
 
-                      <div *ngIf="identity" class="">
+                      <div [class.hidden]="!identity" class="">
                         <router-outlet></router-outlet>
                       </div>
                       <!-- END Timeline Content -->
