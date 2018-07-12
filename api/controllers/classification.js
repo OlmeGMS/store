@@ -52,7 +52,7 @@ function getClassifications(req, res) {
       } else {
         return res.status(200).send({
           total_items: total,
-          classification: classifications
+          classifications: classifications
         });
       }
     }

@@ -1,0 +1,34 @@
+<div class="" ngIf="identity && identity.role == 'ROLE_ADMIN'">
+
+  <h1>{{titulo}}</h1>
+  <div *ngIf="alertMessage">
+    <div class="alert alert-success">
+      {{alertMessage}}
+    </div>
+  </div>
+  <form id="form-validation" class="form-horizontal form-bordered" #formClassification="ngForm" (ngSubmit)="onSubmit()">
+    <fieldset>
+      <legend><i class="fa fa-angle-right"></i> Datos del video juego</legend>
+      <div class="form-group">
+        <label class="col-md-4 control-label" for="name">Nombre<span class="text-danger">*</span></label>
+        <div class="col-md-6">
+          <input type="text" id="name" #name="ngModel" name="name" [(ngModel)]="classification.name" class="form-control" placeholder="Nombre de la clasificación" required />
+        </div>
+        <div class="col-md-6">
+          <span *ngIf="!name.valid && name.touched">El nombre es obligatorio</span>
+        </div>
+      </div>
+      <div class="form-group ">
+        <div class="col-md-8 col-md-offset-4">
+          <button type="submit" class="btn btn-sm btn-success" value="{{titulo}}" [disabled]="!formClassification.form.valid"><i class="fa fa-arrow-right"></i> Agregar Video juego</button>
+          <button type="reset" class="btn btn-sm btn-warning"><i class="fa fa-repeat"></i> Limpiar</button>
+        </div>
+      </div>
+    </fieldset>
+  </form>
+</div>
+
+<div class="" ngIf="!identity && identity.role != 'ROLE_ADMIN'">
+  <h1>Error</h1>
+  <p>No tienes acceso a esta parte de la aplicación.</p>
+</div>

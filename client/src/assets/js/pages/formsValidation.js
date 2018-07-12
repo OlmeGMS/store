@@ -68,6 +68,9 @@ var FormsValidation = function() {
                         required: true,
                         range: [1, 1000]
                     },
+                    name: {
+                      required: true
+                    },
                     val_terms: {
                         required: true
                     }
@@ -93,6 +96,7 @@ var FormsValidation = function() {
                     val_digits: 'Please enter only digits!',
                     val_number: 'Please enter a number!',
                     val_range: 'Please enter a number between 1 and 1000!',
+                    name: 'Digite el nombre',
                     val_terms: 'You must agree to the service terms!'
                 }
             });

@@ -1,0 +1,68 @@
+<h1>{{titulo}}</h1>
+<div *ngIf="alertMessage">
+  <div class="alert alert-success">
+    {{alertMessage}}
+  </div>
+</div>
+<form id="form-validation" class="form-horizontal form-bordered" #formVideogame="ngForm" (ngSubmit)="onSubmit()">
+  <fieldset>
+    <legend><i class="fa fa-angle-right"></i> Datos del video juego</legend>
+    <div class="form-group">
+      <label class="col-md-4 control-label" for="name">Nombre<span class="text-danger">*</span></label>
+      <div class="col-md-6">
+        <input type="text" id="name" #name="ngModel" name="name" [(ngModel)]="videogame.name" class="form-control" placeholder="Nombre del video juego" required />
+      </div>
+      <div class="col-md-6">
+        <span *ngIf="!name.valid && name.touched">El nombre es obligatorio</span>
+      </div>
+    </div>
+
+
+    <div class="form-group">
+      <label class="col-md-4 control-label" for="tipo_videogame">Tipo<span class="text-danger">*</span></label>
+      <div class="col-md-6">
+        <input type="text" id="tipo_videogame" #tipo_videogame="ngModel"[(ngModel)]="videogame.type" name="tipo_videogame" class="form-control" placeholder="tipo del video juego" required />
+      </div>
+      <div class="col-md-6">
+        <span *ngIf="!tipo_videogame.valid && tipo_videogame.touched">El tipo es obligatorio</span>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label class="col-md-4 control-label" for="year">Año<span class="text-danger">*</span></label>
+      <div class="col-md-6">
+        <input type="text" id="year" #year="ngModel" name="year" [(ngModel)]="videogame.year" class="form-control" placeholder="año del video juego" required />
+      </div>
+      <div class="col-md-6">
+        <span *ngIf="!year.valid && year.touched">El año es obligatorio</span>
+      </div>
+    </div>
+
+    <!--<div class="form-group">
+      <label class="col-md-4 control-label" for="image">Tipo<span class="text-danger">*</span></label>
+      <div class="col-md-6">
+        <input type="text" id="image" #image="ngModel" name="image" [(ngModel)]="videogame.image" class="form-control" placeholder="imagen del video juego" required />
+      </div>
+      <div class="col-md-6">
+        <span *ngIf="!image.valid && image.touched">La imagen es obligatorio</span>
+      </div>
+    </div>-->
+
+    <div class="form-group">
+      <label class="col-md-4 control-label" for="classificationn">Clasificación<span class="text-danger">*</span></label>
+      <div class="col-md-6">
+        <input type="text" id="classification" #classification="ngModel" name="classification" [(ngModel)]="videogame.classification" class="form-control" placeholder="Clasificación del video juego" required />
+      </div>
+      <div class="col-md-6">
+        <span *ngIf="!classification.valid && classification.touched">La clasificación es obligatoria</span>
+      </div>
+    </div>
+
+    <div class="form-group ">
+      <div class="col-md-8 col-md-offset-4">
+        <button type="submit" class="btn btn-sm btn-success" value="{{titulo}}" [disabled]="!formVideogame.form.valid"><i class="fa fa-arrow-right"></i> Agregar Video juego</button>
+        <button type="reset" class="btn btn-sm btn-warning"><i class="fa fa-repeat"></i> Limpiar</button>
+      </div>
+    </div>
+  </fieldset>
+</form>
